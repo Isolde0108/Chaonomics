@@ -1,10 +1,122 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- saved from url=(0059)file:///E:/CTH/Downloads/deepseek_html_20260603_20cc31.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaonomics · 青年茶饮探索计划</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        :root {
+            --green: #4A7C59;
+            --green-light: #6B9E77;
+            --green-dark: #2D4F37;
+            --cream: #FBF7F0;
+            --gold: #C8A951;
+            --gold-light: #E0D0A0;
+            --dark: #1A1D1A;
+            --white: #FFFFFF;
+            --text: #2c2c2c;
+            --text-light: #5C5F5B;
+            --accent: #3DD6C8;
+            --xiaohongshu: #FE2C55;
+            --radius: 20px;
+            --shadow: 0 8px 30px rgba(0,0,0,0.06);
+            --transition: 0.25s ease;
+            --font-display: 'Georgia', 'Noto Serif SC', 'STSong', serif;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--cream); color: var(--text); line-height:1.6; -webkit-font-smoothing: antialiased; }
+        .nav { position:fixed; top:0; width:100%; z-index:999; background: rgba(251,247,240,0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom:1px solid rgba(0,0,0,0.05); display:flex; justify-content:center; padding:0 20px; height:64px; }
+        .nav-inner { width:100%; max-width:1200px; display:flex; align-items:center; justify-content:space-between; }
+        .logo { font-family: var(--font-display); font-size:1.6rem; font-weight:700; color:var(--green-dark); text-decoration:none; cursor:pointer; white-space:nowrap; }
+        .nav-links { display:flex; gap:6px; list-style:none; flex-wrap:wrap; align-items:center; }
+        .nav-links a { text-decoration:none; color:var(--text-light); font-weight:500; padding:8px 14px; border-radius:20px; transition:var(--transition); font-size:0.9rem; cursor:pointer; white-space:nowrap; }
+        .nav-links a:hover, .nav-links a.active { background: var(--green); color:#fff; }
+        .back-home-btn { display:none; background:transparent; border:1.5px solid var(--green); color:var(--green-dark); padding:6px 14px; border-radius:20px; cursor:pointer; font-size:0.85rem; font-weight:500; transition:var(--transition); white-space:nowrap; margin-left:8px; }
+        .back-home-btn:hover { background:rgba(74,124,89,0.08); }
+        body.single-page .back-home-btn { display:inline-block; }
+        .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; z-index:1001; background:none; border:none; }
+        .nav-hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; transition:var(--transition); }
+        @media (max-width:860px) {
+            .nav-links { position:fixed; top:0; right:-100%; width:260px; height:100vh; background:var(--white); flex-direction:column; padding:80px 24px 30px; gap:4px; box-shadow:0 0 40px rgba(0,0,0,0.15); transition:right 0.35s; align-items:stretch; justify-content:flex-start; }
+            .nav-links.active { right:0; }
+            .nav-links a { padding:12px 16px; border-radius:12px; font-size:1rem; }
+            .nav-hamburger { display:flex; }
+            .back-home-btn { margin-left:0; margin-top:8px; text-align:center; }
+        }
+        .mobile-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:998; }
+        .mobile-overlay.active { display:block; }
+
+        .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; background:linear-gradient(150deg, #FBF7F0 0%, #F0EDE5 50%, #E8E3D7 100%); padding:80px 20px; }
+        .hero-content { position:relative; z-index:2; max-width:700px; }
+        .hero h1 { font-family:var(--font-display); font-size:clamp(2.4rem,5vw,3.2rem); font-weight:700; color:var(--dark); line-height:1.3; margin-bottom:20px; }
+        .hero h1 span { background:linear-gradient(135deg, #4A7C59, #2D4F37); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:transparent; }
+        .hero p { font-size:1.2rem; color:var(--text-light); margin-bottom:40px; }
+        .hero .tech-note { font-size:0.8rem; color:var(--text-light); margin-top:30px; opacity:0.7; }
+        .section { max-width:1200px; margin:0 auto; padding:80px 20px; }
+        .btn { display:inline-block; padding:14px 32px; border-radius:30px; font-weight:600; text-decoration:none; transition:var(--transition); cursor:pointer; border:none; font-size:1rem; background:var(--green); color:#fff; box-shadow:0 8px 20px rgba(74,124,89,0.25); font-family:inherit; text-align:center; }
+        .btn:hover { background:var(--green-dark); transform:translateY(-2px); box-shadow:0 12px 28px rgba(74,124,89,0.35); }
+        .btn-outline { background:transparent; border:2px solid var(--green); color:var(--green-dark); box-shadow:none; }
+        .btn-outline:hover { background:rgba(74,124,89,0.05); box-shadow:none; }
+        .btn-gold { background:var(--gold); color:#1A1D1A; font-weight:700; box-shadow:0 8px 20px rgba(200,169,81,0.3); }
+        .btn-gold:hover { background:#b8943d; box-shadow:0 12px 28px rgba(200,169,81,0.45); }
+        .btn-sm { padding:8px 18px; font-size:0.85rem; border-radius:20px; }
+        .card { background:var(--white); border-radius:var(--radius); padding:30px; box-shadow:var(--shadow); transition:var(--transition); }
+        .card:hover { transform:translateY(-4px); box-shadow:0 15px 40px rgba(0,0,0,0.1); }
+        .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+        .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+        @media (max-width:768px) { .grid-2,.grid-3 { grid-template-columns:1fr; } .section { padding:60px 16px; } }
+        .section-title { font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2rem); margin-bottom:15px; color:var(--dark); }
+        .section-sub { color:var(--text-light); margin-bottom:40px; max-width:600px; }
+        .question-box { background:var(--white); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); margin-bottom:20px; }
+        .question-box h3 { font-family:var(--font-display); font-size:1.1rem; margin-bottom:6px; color:var(--green-dark); }
+        .question-box h4 { font-weight:600; margin-bottom:6px; color:var(--text); }
+        .question-box .stage-desc { color:var(--text-light); font-size:0.9rem; margin-bottom:16px; font-style:italic; }
+        .option-group { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+        .option { padding:10px 18px; border:2px solid #ddd; border-radius:25px; cursor:pointer; transition:var(--transition); background:#f9f9f9; user-select:none; font-size:0.9rem; display:inline-flex; align-items:center; }
+        .option:hover { border-color:var(--green); }
+        .option.selected { border-color:var(--green); background:#eef5f0; font-weight:600; color:var(--green-dark); }
+        .option input { display:none; }
+        .step-indicator { display:flex; gap:10px; margin-bottom:20px; align-items:center; }
+        .step-dot { width:12px; height:12px; border-radius:50%; background:#ccc; transition:var(--transition); }
+        .step-dot.active { background:var(--green); box-shadow:0 0 8px rgba(74,124,89,0.4); }
+        .step-dot.completed { background:var(--green-light); }
+        .step-line { flex:1; height:2px; background:#ddd; max-width:60px; }
+        .modal { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:1000; visibility:hidden; opacity:0; transition:opacity 0.3s, visibility 0.3s; }
+        .modal.active { visibility:visible; opacity:1; }
+        .modal-content { background:#fff; border-radius:24px; max-width:620px; width:90%; padding:30px; max-height:80vh; overflow-y:auto; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.25); }
+        .close-btn { position:absolute; top:15px; right:20px; font-size:24px; cursor:pointer; color:#888; background:none; border:none; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:var(--transition); z-index:5; }
+        .close-btn:hover { background:rgba(0,0,0,0.05); color:#333; }
+        .community-post { background:#f9f9f9; padding:15px; border-radius:12px; margin-bottom:12px; position:relative; }
+        .community-post .post-actions { display:flex; gap:12px; margin-top:8px; font-size:0.8rem; color:var(--text-light); }
+        .community-post .post-actions span { cursor:pointer; transition:var(--transition); }
+        .community-post .post-actions span:hover { color:var(--green); }
+        .reply-box { margin-top:8px; display:flex; gap:8px; }
+        .reply-box input { flex:1; padding:8px 12px; border-radius:16px; border:1px solid #ddd; font-size:0.85rem; font-family:inherit; }
+        .reply-box button { padding:6px 14px; border-radius:16px; background:var(--green); color:#fff; border:none; cursor:pointer; font-size:0.8rem; }
+        .footer { background:var(--dark); color:#ccc; text-align:center; padding:40px 20px; margin-top:40px; }
+        .xhs-link { color:var(--xiaohongshu); font-weight:600; cursor:pointer; }
+        .tea-box-card { background:linear-gradient(145deg, #fdf8f2, #f7efe3); border:2px solid var(--gold-light); border-radius:24px; padding:30px; text-align:center; box-shadow:0 20px 40px rgba(0,0,0,0.08); transition:0.3s; position:relative; overflow:hidden; }
+        .tea-box-card:hover { transform:translateY(-5px); box-shadow:0 25px 50px rgba(0,0,0,0.12); }
+        .tea-box-card .box-illustration { font-size:5rem; margin-bottom:15px; filter:drop-shadow(0 8px 12px rgba(0,0,0,0.1)); }
+        .tea-box-card h3 { font-family:var(--font-display); font-size:1.5rem; margin-bottom:10px; color:var(--dark); }
+        .tea-box-card .tag { display:inline-block; background:var(--green); color:#fff; font-size:0.7rem; padding:4px 12px; border-radius:15px; letter-spacing:0.05em; margin:8px 0; }
+        .tea-box-card .features { display:flex; justify-content:center; gap:15px; margin:15px 0; font-size:0.85rem; color:var(--text-light); flex-wrap:wrap; }
+        .profile-avatar { width:80px; height:80px; border-radius:50%; background:var(--green-light); display:flex; align-items:center; justify-content:center; font-size:2rem; color:#fff; margin:0 auto 15px; font-weight:700; }
+        .privacy-note { font-size:0.75rem; color:#999; margin-top:8px; text-align:center; }
+        .share-poster { background:linear-gradient(160deg, #fdf8f2 0%, #f5ede0 100%); border:3px solid var(--gold-light); border-radius:20px; padding:30px; text-align:center; margin:20px 0; }
+        .share-poster h2 { font-family:var(--font-display); color:var(--green-dark); margin-bottom:10px; }
+        .hidden { display:none !important; }
+        body:not(.single-page) .page-section { display:block; }
+        body.single-page .page-section:not(.active) { display:none; }
+        body.single-page .hero:not(.active) { display:none; }
+        .hero { display:flex; }
+        body.single-page .hero { display:none; }
+        body.single-page .hero.active { display:flex; }
+        .page-section { display:block; }
+        .toast { position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(100px); background:var(--dark); color:#fff; padding:14px 26px; border-radius:28px; z-index:3000; font-weight:600; font-size:0.9rem; transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1); pointer-events:none; box-shadow:0 8px 30px rgba(0,0,0,0.3); }
+        .toast.show { transform:translateX(-50%) translateY(0); }
+        .storage-warning { background:#FFF3CD; border:1px solid #ffc107; border-radius:12px; padding:12px 16px; font-size:0.85rem; color:#856404; margin-top:15px; text-align:center; }
+    </style>
 </head>
 <body>
     <nav class="nav" id="navbar">
@@ -40,7 +152,7 @@
         <div class="grid-3">
             <div class="card"><h3>🌱 真实风土</h3><p>深入福建、云南核心产区，与既守护传统又勇于创新的茶人合作。每款茶附带数字足迹，可追溯全过程。</p></div>
             <div class="card"><h3>📖 文化体验</h3><p>人物故事、风土知识、创新喝法……让喝茶成为感官与智识的双重旅程。</p></div>
-            <div class="card"><h3>🤝 会员共创</h3><p>你的口味偏好直接影响季度茶单。参与投票，决定下一款量产茶。</p></div>
+            <div class="card"><h3>🤝 会员共创</h3><p>你的口味偏好直接影响季度茶单��参与投票，决定下一款量产茶。</p></div>
         </div>
     </section>
 
@@ -74,7 +186,7 @@
             <div id="step3" class="step-content hidden">
                 <div class="question-box"><h3>第三阶：共创产品细节</h3><p class="stage-desc">在细节上做选择，让这杯茶完全属于你。</p><h4>7. 关于茶叶形态，你的偏好是？</h4><div class="option-group" data-question="form"><label class="option"><input type="radio" name="form" value="loose"> 原叶茶（完整叶片，传统有仪式感）</label><label class="option"><input type="radio" name="form" value="bag"> 三角茶包（方便快捷，适合办公室）</label><label class="option"><input type="radio" name="form" value="coldbrew"> 冷泡茶包（专为冷萃设计）</label></div></div>
                 <div class="question-box"><h4>8. 你希望我们如何呈现你的"专属故事"？</h4><div class="option-group" data-question="storyFormat"><label class="option"><input type="radio" name="storyFormat" value="card"> 一张精美的"茶卡"，写上你的茶的故事与风味笔记</label><label class="option"><input type="radio" name="storyFormat" value="audio"> 一个可扫码聆听的音频，讲述这款茶的灵感来源</label><label class="option"><input type="radio" name="storyFormat" value="poem"> 一份专属的冲煮建议，甚至是一首搭配饮用的小诗</label></div></div>
-                <div class="question-box"><h4>9. （可选）分享一个对你而言有特���意义的符号、颜色或物品，或许我们能将它融入设计。</h4><input type="text" id="symbol" placeholder="如：蓝色、羽毛、银杏" style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd; margin-top:10px;"></div>
+                <div class="question-box"><h4>9. （可选）分享一个对你而言有特殊意义的符号、颜色或物品，或许我们能将它融入设计。</h4><input type="text" id="symbol" placeholder="如：蓝色、羽毛、银杏" style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd; margin-top:10px;"></div>
                 <div class="question-box"><h4>10. 月度探索盒定价看法</h4><div class="option-group" data-question="priceBox"><label class="option"><input type="radio" name="priceBox" value="99"> ¥99/月</label><label class="option"><input type="radio" name="priceBox" value="159"> ¥159/月</label><label class="option"><input type="radio" name="priceBox" value="229"> ¥229/月</label></div></div>
                 <div class="question-box"><h4>11. 定制茶接受价格</h4><div class="option-group" data-question="priceCustom"><label class="option"><input type="radio" name="priceCustom" value="199"> ¥199/份</label><label class="option"><input type="radio" name="priceCustom" value="299"> ¥299/份</label><label class="option"><input type="radio" name="priceCustom" value="399"> ¥399+/份</label></div></div>
                 <button class="btn btn-outline" onclick="prevStep(2)">◀ 上一步</button><button class="btn" onclick="submitProfile()">✨ 生成我的口味档案</button><button class="btn btn-outline btn-sm" style="margin-left:10px;" onclick="saveDraft()">💾 保存草稿</button>
@@ -129,10 +241,10 @@
         <p>Chaonomics · 青年茶饮探索计划</p>
         <p>基于区块链技术，每一片茶叶都可追溯。</p>
         <p>小红书：<span class="xhs-link" onclick="copyXHS()">@Sweety_Jan0108</span></p>
-        <p style="font-size:0.8rem;margin-top:10px;">© 2025 Chaonomics</p>
+        <p style="font-size:0.8rem;margin-top:10px;">© 2025 概念验证网站 · 数据仅存储于本地</p>
     </footer>
 
-    <!-- 弹窗部分 -->
+    <!-- 弹窗部分不变 -->
     <div class="modal" id="traceModal"><div class="modal-content"><span class="close-btn" onclick="closeTrace()">✕</span><h2>🔗 数字足迹 · 完整溯源报告</h2><p><strong>武夷岩茶·正岩大红袍</strong></p><p>📍 产地：福建武夷山正岩核心区</p><p>📅 采摘：2025.5.3</p><p>👨‍🏭 制茶师：陈国栋（34代非遗传承人）</p><p>📖 故事：家族守护茶山三百余年</p><p>⛰️ 风土：丹霞地貌，岩骨花香</p><p>🧪 检测：SGS零检出</p><p style="color:#888;">区块哈希：0x7a3f... (模拟)</p></div></div>
     <div class="modal" id="preorderModal"><div class="modal-content"><span class="close-btn" onclick="closePreorderModal()">✕</span><h2>📝 意向登记</h2><form onsubmit="submitPreorder(event)"><input type="text" id="preName" placeholder="姓名" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><input type="tel" id="prePhone" placeholder="手机号" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><button type="submit" class="btn" style="width:100%;">提交</button></form><p class="privacy-note">🔒 仅用于通知</p></div></div>
     <div class="modal" id="profileEditorModal"><div class="modal-content"><span class="close-btn" onclick="closeProfileEditor()">✕</span><h2>编辑个人信息</h2><form onsubmit="saveProfile(event)"><input type="text" id="editNickname" placeholder="昵称" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><input type="tel" id="editPhone" placeholder="手机号" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><select id="editGender" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><option value="">性别</option><option value="男">男</option><option value="女">女</option><option value="其他">其他</option></select><button type="submit" class="btn" style="width:100%;">保存</button></form></div></div>
@@ -140,6 +252,232 @@
     <div class="modal" id="shareModal"><div class="modal-content"><span class="close-btn" onclick="closeShareModal()">✕</span><h2>📸 我的茶卡</h2><div class="share-poster" id="sharePoster"></div><button class="btn" onclick="downloadPoster()" style="margin-top:15px;">📥 保存图片</button></div></div>
     <div class="toast" id="toast"></div>
 
-    <script src="js/script.js"></script>
-</body>
-</html>
+    <script>
+        (function() {
+            // 导航与移动端
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileOverlay.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+            window.closeMobileMenu = function() {
+                navLinks.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+            mobileOverlay.addEventListener('click', closeMobileMenu);
+
+            window.navigateTo = function(sectionId) {
+                document.body.classList.add('single-page');
+                document.querySelectorAll('.hero, .page-section').forEach(sec => sec.classList.remove('active'));
+                const target = document.getElementById(sectionId);
+                if (target) target.classList.add('active');
+                document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+                if (sectionId !== 'home') {
+                    const navLink = document.querySelector(`.nav-links a[onclick*="navigateTo('${sectionId}')"]`);
+                    if (navLink) navLink.classList.add('active');
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                closeMobileMenu();
+            };
+
+            document.querySelector('.logo').addEventListener('click', function(e) {
+                document.body.classList.remove('single-page');
+                document.querySelectorAll('.hero, .page-section').forEach(sec => sec.classList.remove('active'));
+                document.getElementById('home').classList.add('active');
+                document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Toast
+            function showToast(msg) {
+                const toast = document.getElementById('toast');
+                toast.textContent = msg;
+                toast.className = 'toast show';
+                clearTimeout(toast._timeout);
+                toast._timeout = setTimeout(() => toast.classList.remove('show'), 2500);
+            }
+
+            // 埋点
+            window.trackClick = function(eventName) { console.log('[埋点]', eventName); };
+
+            // 小红书复制修复（增强兼容性）
+            window.copyXHS = function() {
+                const account = 'Sweety_Jan0108';
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(account).then(() => {
+                        showToast('小红书账号已复制！📋');
+                    }).catch(() => {
+                        fallbackCopy(account);
+                    });
+                } else {
+                    fallbackCopy(account);
+                }
+            };
+            function fallbackCopy(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.left = '-9999px';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('小红书账号已复制！📋');
+                } catch (e) {
+                    showToast('请手动搜索关注：@Sweety_Jan0108');
+                }
+                document.body.removeChild(textarea);
+            }
+
+            // 弹窗通用
+            window.openTrace = function() { document.getElementById('traceModal').classList.add('active'); };
+            window.closeTrace = function() { document.getElementById('traceModal').classList.remove('active'); };
+            window.openPreorderModal = function() { document.getElementById('preorderModal').classList.add('active'); };
+            window.closePreorderModal = function() { document.getElementById('preorderModal').classList.remove('active'); };
+            window.submitPreorder = function(e) { e.preventDefault(); showToast('意向已登记！'); closePreorderModal(); };
+            window.openCustomBuyModal = function(idx) {
+                const profiles = JSON.parse(localStorage.getItem('chaonomics_profiles') || '[]');
+                const p = profiles[idx];
+                document.getElementById('customBuyProfileName').innerText = p.name + ' | ' + p.recommendation;
+                document.getElementById('customBuyModal').classList.add('active');
+            };
+            window.closeCustomBuyModal = function() { document.getElementById('customBuyModal').classList.remove('active'); };
+            window.submitCustomBuy = function(e) { e.preventDefault(); showToast('意向已登记！'); closeCustomBuyModal(); };
+            window.openProfileEditor = function() { document.getElementById('profileEditorModal').classList.add('active'); };
+            window.closeProfileEditor = function() { document.getElementById('profileEditorModal').classList.remove('active'); };
+            window.saveProfile = function(e) {
+                e.preventDefault();
+                const info = { nickname: document.getElementById('editNickname').value, phone: document.getElementById('editPhone').value, gender: document.getElementById('editGender').value, memberSince: new Date().toISOString() };
+                localStorage.setItem('chaonomics_userinfo', JSON.stringify(info));
+                displayPersonalInfo();
+                closeProfileEditor();
+            };
+            window.openShareModal = function(idx) {
+                const profiles = JSON.parse(localStorage.getItem('chaonomics_profiles') || '[]');
+                const p = profiles[idx];
+                document.getElementById('sharePoster').innerHTML = `<h2>🍵 ${p.recommendation}</h2><p>${p.baseName} · ${p.flavorName}</p><p>"${p.sceneMemory || '专属味道'}"</p>`;
+                document.getElementById('shareModal').classList.add('active');
+            };
+            window.closeShareModal = function() { document.getElementById('shareModal').classList.remove('active'); };
+            window.downloadPoster = function() { showToast('请截图保存'); };
+
+            function displayPersonalInfo() {
+                const info = JSON.parse(localStorage.getItem('chaonomics_userinfo') || '{}');
+                document.getElementById('displayNickname').textContent = info.nickname || '未设置';
+                document.getElementById('displayPhone').textContent = info.phone || '未绑定';
+                document.getElementById('displayGender').textContent = info.gender || '未设置';
+                if (info.nickname) document.getElementById('avatarDisplay').textContent = info.nickname.charAt(0).toUpperCase();
+            }
+
+            // 问卷步骤
+            let currentStep = 1;
+            function showStep(step) {
+                document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
+                document.getElementById('step' + step).classList.remove('hidden');
+                document.querySelectorAll('.step-dot').forEach(dot => dot.classList.remove('active','completed'));
+                document.querySelector(`.step-dot[data-step="${step}"]`).classList.add('active');
+                for (let i=1; i<step; i++) document.querySelector(`.step-dot[data-step="${i}"]`).classList.add('completed');
+                currentStep = step;
+            }
+            window.nextStep = function(step) { if (currentStep===1 && (!document.querySelector('input[name="base"]:checked') || !document.querySelector('input[name="flavor"]:checked'))) { showToast('请完成基础选择'); return; } showStep(step); };
+            window.prevStep = function(step) { showStep(step); };
+            window.saveDraft = function() { localStorage.setItem('chaonomics_draft', JSON.stringify({ step: currentStep })); showToast('草稿已保存'); };
+            function loadDraft() { const draft = JSON.parse(localStorage.getItem('chaonomics_draft')); if (draft) { showStep(draft.step); return true; } return false; }
+
+            // 选项交互修复（投票绿底问题核心）
+            document.addEventListener('click', function(e) {
+                const opt = e.target.closest('.option');
+                if (!opt) return;
+                const input = opt.querySelector('input');
+                if (!input) return;
+                const group = opt.closest('.option-group');
+                if (input.type === 'radio') {
+                    // 清除同组所有选中状态
+                    if (group) {
+                        group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                    } else {
+                        // 处理没有group的情况（如投票），按name属性查找
+                        const name = input.name;
+                        if (name) {
+                            document.querySelectorAll(`input[name="${name}"]`).forEach(inp => inp.closest('.option')?.classList.remove('selected'));
+                        }
+                    }
+                    opt.classList.add('selected');
+                    input.checked = true;
+                } else if (input.type === 'checkbox') {
+                    input.checked = !input.checked;
+                    opt.classList.toggle('selected', input.checked);
+                }
+            });
+
+            // 档案管理
+            function getProfiles() { return JSON.parse(localStorage.getItem('chaonomics_profiles') || '[]'); }
+            function saveProfiles(profiles) { localStorage.setItem('chaonomics_profiles', JSON.stringify(profiles)); }
+            function renderTearoom() {
+                const profiles = getProfiles();
+                const container = document.getElementById('tearoomProfiles');
+                if (!profiles.length) {
+                    container.innerHTML = '<p style="color:#888;">暂无档案</p>';
+                    document.getElementById('profileAnalysis').innerHTML = '<p>暂无档案</p>';
+                    return;
+                }
+                container.innerHTML = profiles.map((p,idx) => `
+                <div class="card" style="text-align:center;">
+                    <h3>${p.name}</h3><p><strong>${p.recommendation}</strong></p>
+                    <button class="btn btn-sm" onclick="viewProfileDetail(${idx})">详情</button>
+                    <button class="btn btn-outline btn-sm" onclick="deleteProfile(${idx})">删除</button>
+                    <button class="btn btn-gold btn-sm" onclick="openCustomBuyModal(${idx})">🛒 购买</button>
+                    <button class="btn btn-outline btn-sm" onclick="openShareModal(${idx})">📸 分享</button>
+                </div>`).join('');
+                document.getElementById('profileAnalysis').innerHTML = '<p>基于档案的推荐分析……</p>';
+            }
+            window.viewProfileDetail = function(idx) { const p = getProfiles()[idx]; alert(JSON.stringify(p, null, 2)); };
+            window.deleteProfile = function(idx) { if (confirm('删除？')) { const p = getProfiles(); p.splice(idx,1); saveProfiles(p); renderTearoom(); } };
+            window.startNewProfile = function() { document.getElementById('surveyContainer').classList.remove('hidden'); showStep(1); navigateTo('customize'); };
+            window.submitProfile = function() {
+                const base = document.querySelector('input[name="base"]:checked')?.value;
+                const flavor = document.querySelector('input[name="flavor"]:checked')?.value;
+                if (!base || !flavor) { showToast('请完成选择'); return; }
+                const profile = { name: `档案${getProfiles().length+1}`, base, flavor, recommendation: base+'-'+flavor };
+                const profiles = getProfiles();
+                profiles.push(profile);
+                saveProfiles(profiles);
+                renderTearoom();
+                showToast('档案已生成');
+                document.getElementById('surveyContainer').classList.add('hidden');
+                document.getElementById('profileExistsBox').classList.remove('hidden');
+            };
+
+            // 投票
+            window.castVote = function() {
+                const selected = document.querySelector('input[name="vote"]:checked');
+                if (!selected) { showToast('请选择'); return; }
+                showToast('投票成功！');
+            };
+
+            // 社区故事
+            function renderStories() {
+                const stories = JSON.parse(localStorage.getItem('chaonomics_stories') || '[{"author":"@茶友","text":"好喝！","likes":0,"replies":[]}]');
+                document.getElementById('storyFeed').innerHTML = stories.map((s,idx) => `
+                <div class="community-post"><strong>${s.author}</strong>：${s.text}
+                <div class="post-actions"><span onclick="likeStory(${idx})">❤️ ${s.likes||0}</span></div>
+                </div>`).join('');
+            }
+            window.likeStory = function(idx) { const stories = JSON.parse(localStorage.getItem('chaonomics_stories')); stories[idx].likes++; localStorage.setItem('chaonomics_stories', JSON.stringify(stories)); renderStories(); };
+            window.postStory = function() { const text = document.getElementById('storyInput').value.trim(); if (!text) return; const stories = JSON.parse(localStorage.getItem('chaonomics_stories') || '[]'); stories.unshift({ author:'@新茶友', text, likes:0 }); localStorage.setItem('chaonomics_stories', JSON.stringify(stories)); renderStories(); document.getElementById('storyInput').value = ''; };
+
+            // 初始化
+            displayPersonalInfo();
+            renderTearoom();
+            renderStories();
+            if (localStorage.getItem('chaonomics_draft') && !getProfiles().length && confirm('有未完成问卷，继续？')) { loadDraft(); navigateTo('customize'); }
+            document.addEventListener('keydown', e => { if (e.key==='Escape') document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active')); });
+            document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', function(e) { if (e.target===this) this.classList.remove('active'); }));
+        })();
+    </script>
+
+</body></html>
