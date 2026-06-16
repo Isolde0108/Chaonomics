@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaonomics · 青年茶饮探索计划</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="nav" id="navbar">
+        <div class="nav-inner">
+            <a class="logo" onclick="navigateTo('home')" title="返回主页">Chaonomics</a>
+            <button class="nav-hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="navigateTo('story');closeMobileMenu();">品牌故事</a></li>
+                <li><a onclick="navigateTo('box');closeMobileMenu();">探索茶盒</a></li>
+                <li><a onclick="navigateTo('customize');closeMobileMenu();">定制我的茶</a></li>
+                <li><a onclick="navigateTo('community');closeMobileMenu();">社区共创</a></li>
+                <li><a onclick="navigateTo('tearoom');closeMobileMenu();">我的茶室</a></li>
+                <li><button class="back-home-btn" onclick="navigateTo('home');closeMobileMenu();">🏠 返回主页</button></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+
+    <section id="home" class="hero active">
+        <div class="hero-content">
+            <h1>当年轻遇见古树<br>找到你的<span>本命茶</span></h1>
+            <p>从福建武夷山开始，探寻真实风土。专为年轻人打造的茶饮探索计划。</p>
+            <a class="btn" onclick="trackClick('start_customize');navigateTo('customize')">开始定制我的茶</a>
+            <a class="btn btn-outline" style="margin-left:15px;" onclick="trackClick('preview_box');navigateTo('box')">预览茶盒</a>
+            <div class="tech-note">由区块链技术提供透明溯源</div>
+            <div style="margin-top:20px; font-size:0.9rem; color:var(--xiaohongshu); cursor:pointer;" onclick="copyXHS()">📕 小红书 @Sweety_Jan0108</div>
+        </div>
+    </section>
+
+    <section id="story" class="page-section section">
+        <h2 class="section-title">我们的故事</h2>
+        <p class="section-sub">Chaonomics 相信，茶是年轻人的文化资本。我们连接土地与味蕾，让每一杯茶都成为探索的起点。</p>
+        <div class="grid-3">
+            <div class="card"><h3>🌱 真实风土</h3><p>深入福建、云南核心产区，与既守护传统又勇于创新的茶人合作。每款茶附带数字足迹，可追溯全过程。</p></div>
+            <div class="card"><h3>📖 文化体验</h3><p>人物故事、风土知识、创新喝法……让喝茶成为感官与智识的双重旅程。</p></div>
+            <div class="card"><h3>🤝 会员共创</h3><p>你的口味偏好直接影响季度茶单。参与投票，决定下一款量产茶。</p></div>
+        </div>
+    </section>
+
+    <section id="box" class="page-section section">
+        <h2 class="section-title">月度探索盒 · 首期概念礼盒</h2>
+        <div class="grid-2">
+            <div class="tea-box-card"><div class="box-illustration">🎁</div><h3>福建·正岩大红袍</h3><span class="tag">非遗工艺</span><div class="features"><span>🍃 原叶茶包</span><span>📜 故事茶卡</span><span>🔗 数字足迹</span></div><p>岩骨花香，由第34代传人陈国栋手工炭焙。每盒都是一次武夷山风土之旅。</p><button class="btn" onclick="trackClick('view_trace');openTrace()">查看数字足迹</button></div>
+            <div class="tea-box-card" style="border-color: var(--green);"><div class="box-illustration">🧪</div><h3>会员定制款</h3><span class="tag">专属调配</span><div class="features"><span>🎯 口味档案</span><span>🎨 个性设计</span><span>📦 每月惊喜</span></div><p>根据你的味觉DNA，调配独一无二的浓度、焙火与花香。真正属于你的那一杯。</p><a class="btn btn-outline" onclick="trackClick('start_taste_test');navigateTo('customize')">开始口味测试</a></div>
+        </div>
+        <div style="text-align:center; margin-top:40px;"><h3>✨ 首期概念礼盒 · 开启预售意向登记</h3><p style="color:var(--text-light);">留下联系方式，我们将在正式发售时第一时间通知你。</p><button class="btn" onclick="trackClick('preorder');openPreorderModal()">📝 立即登记意向</button><p class="privacy-note">🔒 你的信息仅用于产品通知，不会泄露给第三方。</p></div>
+    </section>
+
+    <section id="customize" class="page-section section">
+        <h2 class="section-title">定制你的专属茶</h2>
+        <p class="section-sub">完成这份沉浸式口味问卷，我们将为你生成独一无二的茶品档案。</p>
+        <div id="profileExistsBox" class="hidden" style="text-align:center; margin-bottom:30px;"><p>📂 你已拥有口味档案，可以查看或创建新档案。</p><a class="btn" style="margin-right:10px;" onclick="navigateTo('tearoom')">前往我的茶室</a><button class="btn btn-outline" onclick="startNewProfile()">➕ 创建新档案</button></div>
+        <div id="surveyContainer">
+            <div class="step-indicator" id="stepIndicator"><div class="step-dot active" data-step="1"></div><div class="step-line"></div><div class="step-dot" data-step="2"></div><div class="step-line"></div><div class="step-dot" data-step="3"></div></div>
+            <div id="step1" class="step-content">
+                <div class="question-box"><h3>第一阶：探索风味与场景</h3><p class="stage-desc">像咖啡师一样，快速了解你的基础口味偏好。</p><h4>1. 你通常因为什么原因喝茶？（可多选）</h4><div class="option-group" data-question="reason"><label class="option"><input type="checkbox" value="focus"> 提神醒脑，专注工作/学习</label><label class="option"><input type="checkbox" value="relax"> 放松身心，舒缓压力</label><label class="option"><input type="checkbox" value="flavor"> 纯粹享受其风味</label><label class="option"><input type="checkbox" value="food"> 搭配餐点</label><label class="option"><input type="checkbox" value="social"> 社交分享</label></div></div>
+                <div class="question-box"><h4>2. 你更偏爱哪种基础茶类？</h4><div class="option-group" data-question="base"><label class="option"><input type="radio" name="base" value="green"> 绿茶（清新、鲜爽、自然）</label><label class="option"><input type="radio" name="base" value="oolong"> 乌龙茶（香醇、层次丰富、回味悠长）</label><label class="option"><input type="radio" name="base" value="black"> 红茶（醇厚、温润、带花果甜香）</label><label class="option"><input type="radio" name="base" value="white"> 白茶（清雅、甘甜、有毫香）</label><label class="option"><input type="radio" name="base" value="unknown"> 我不太懂，希望你来推荐</label></div></div>
+                <div class="question-box"><h4>3. 你最喜欢的风味描述是什么？</h4><div class="option-group" data-question="flavor"><label class="option"><input type="radio" name="flavor" value="floral"> 花香（如茉莉、桂花、兰花香）</label><label class="option"><input type="radio" name="flavor" value="fruity"> 果香（如蜜桃、荔枝、柑橘）</label><label class="option"><input type="radio" name="flavor" value="roasted"> 烘焙香（如炒米、焦糖、坚果）</label><label class="option"><input type="radio" name="flavor" value="herbal"> 草本清香（如薄荷、紫苏、竹子）</label><label class="option"><input type="radio" name="flavor" value="sweet"> 醇厚甘甜</label></div></div>
+                <button class="btn" onclick="nextStep(2)">下一步 ➤</button><button class="btn btn-outline btn-sm" style="margin-left:10px;" onclick="saveDraft()">💾 保存草稿</button>
+            </div>
+            <div id="step2" class="step-content hidden">
+                <div class="question-box"><h3>第二阶：定义个性与情感</h3><p class="stage-desc">将一杯茶与你的个性、记忆、情感绑定，这是"专属感"的核心。</p><h4>4. 用三个词描述你希望这款茶带给你的感受或代表你的个性。</h4><input type="text" id="feelingWords" placeholder="例如：探索的、沉静的、温暖的" style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd; margin-top:10px;"></div>
+                <div class="question-box"><h4>5. 你希望这款茶唤起什么样的场景或记忆？</h4><input type="text" id="sceneMemory" placeholder="例如：雨后清晨森林的气息、小时候外婆家的院子" style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd; margin-top:10px;"></div>
+                <div class="question-box"><h4>6. 为你的专属茶命名，你会倾向哪种风格？</h4><div class="option-group" data-question="naming"><label class="option"><input type="radio" name="naming" value="poetic"> 诗意抽象（如"月下松涛"、"远山淡影"）</label><label class="option"><input type="radio" name="naming" value="direct"> 直抒胸臆（如"专注一号"、"抚忧"）</label><label class="option"><input type="radio" name="naming" value="personal"> 以我的名字或某个有意义的词命名</label></div></div>
+                <button class="btn btn-outline" onclick="prevStep(1)">◀ 上一步</button><button class="btn" onclick="nextStep(3)">下一步 ➤</button><button class="btn btn-outline btn-sm" style="margin-left:10px;" onclick="saveDraft()">💾 保存草稿</button>
+            </div>
+            <div id="step3" class="step-content hidden">
+                <div class="question-box"><h3>第三阶：共创产品细节</h3><p class="stage-desc">在细节上做选择，让这杯茶完全属于你。</p><h4>7. 关于茶叶形态，你的偏好是？</h4><div class="option-group" data-question="form"><label class="option"><input type="radio" name="form" value="loose"> 原叶茶（完整叶片，传统有仪式感）</label><label class="option"><input type="radio" name="form" value="bag"> 三角茶包（方便快捷，适合办公室）</label><label class="option"><input type="radio" name="form" value="coldbrew"> 冷泡茶包（专为冷萃设计）</label></div></div>
+                <div class="question-box"><h4>8. 你希望我们如何呈现你的"专属故事"？</h4><div class="option-group" data-question="storyFormat"><label class="option"><input type="radio" name="storyFormat" value="card"> 一张精美的"茶卡"，写上你的茶的故事与风味笔记</label><label class="option"><input type="radio" name="storyFormat" value="audio"> 一个可扫码聆听的音频，讲述这款茶的灵感来源</label><label class="option"><input type="radio" name="storyFormat" value="poem"> 一份专属的冲煮建议，甚至是一首搭配饮用的小诗</label></div></div>
+                <div class="question-box"><h4>9. （可选）分享一个对你而言有特���意义的符号、颜色或物品，或许我们能将它融入设计。</h4><input type="text" id="symbol" placeholder="如：蓝色、羽毛、银杏" style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd; margin-top:10px;"></div>
+                <div class="question-box"><h4>10. 月度探索盒定价看法</h4><div class="option-group" data-question="priceBox"><label class="option"><input type="radio" name="priceBox" value="99"> ¥99/月</label><label class="option"><input type="radio" name="priceBox" value="159"> ¥159/月</label><label class="option"><input type="radio" name="priceBox" value="229"> ¥229/月</label></div></div>
+                <div class="question-box"><h4>11. 定制茶接受价格</h4><div class="option-group" data-question="priceCustom"><label class="option"><input type="radio" name="priceCustom" value="199"> ¥199/份</label><label class="option"><input type="radio" name="priceCustom" value="299"> ¥299/份</label><label class="option"><input type="radio" name="priceCustom" value="399"> ¥399+/份</label></div></div>
+                <button class="btn btn-outline" onclick="prevStep(2)">◀ 上一步</button><button class="btn" onclick="submitProfile()">✨ 生成我的口味档案</button><button class="btn btn-outline btn-sm" style="margin-left:10px;" onclick="saveDraft()">💾 保存草稿</button>
+            </div>
+        </div>
+        <p class="privacy-note" style="margin-top:20px;">🔒 你的口味数据仅用于个性化推荐，不会分享给第三方。</p>
+    </section>
+
+    <section id="community" class="page-section section">
+        <h2 class="section-title">社区共创</h2>
+        <div class="grid-2">
+            <div class="card"><h3>🗳️ 投票：下一季度量产茶</h3><p>选择你希望推出的茶品</p><div id="voteOptions" class="option-group"><label class="option"><input type="radio" name="vote" value="fujian_white"> 福建白茶</label><label class="option"><input type="radio" name="vote" value="yunnan_puer"> 云南普洱</label><label class="option"><input type="radio" name="vote" value="new_blend"> 新式调饮茶</label></div><button class="btn" onclick="trackClick('vote');castVote()" style="margin-top:15px;">投票</button><p id="voteResult" style="margin-top:15px;font-weight:600;"></p></div>
+            <div class="card"><h3>📝 分享喝茶创意</h3><textarea id="storyInput" rows="3" placeholder="冷泡秘方、调饮灵感…" style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;font-family:inherit;"></textarea><button class="btn" onclick="postStory()" style="margin-top:10px;">发布</button><div id="storyFeed" style="margin-top:20px;">
+                <div class="community-post"><strong>@茶友</strong>：好喝！
+                <div class="post-actions"><span onclick="likeStory(0)">❤️ 0</span></div>
+                </div></div></div>
+        </div>
+    </section>
+
+    <section id="tearoom" class="page-section section">
+        <h2 class="section-title">🍵 我的茶室</h2>
+        <div class="grid-2" style="margin-bottom:30px;">
+            <div class="card" id="personalInfoCard"><h3>个人信息</h3><div id="personalInfoDisplay"><div class="profile-avatar" id="avatarDisplay">I</div><p><strong>昵称：</strong><span id="displayNickname">Isolde</span></p><p><strong>会员时长：</strong><span id="displayMemberDays">0天</span></p><p><strong>电话：</strong><span id="displayPhone">13509471080</span></p><p><strong>性别：</strong><span id="displayGender">女</span></p><button class="btn btn-outline btn-sm" onclick="openProfileEditor()">编辑资料</button></div></div>
+            <div class="card"><h3>口味档案分析</h3><div id="profileAnalysis"><p>基于档案的推荐分析……</p></div></div>
+        </div>
+        <h3>我的口味档案</h3><div id="storageWarning" class="storage-warning hidden">⚠️ 存储空间不足，建议清理部分旧档案。</div><div id="tearoomProfiles" class="grid-3">
+                <div class="card" style="text-align:center;">
+                    <h3>档案 1</h3><p><strong>武夷岩茶·大红袍</strong></p>
+                    <button class="btn btn-sm" onclick="viewProfileDetail(0)">详情</button>
+                    <button class="btn btn-outline btn-sm" onclick="deleteProfile(0)">删除</button>
+                    <button class="btn btn-gold btn-sm" onclick="openCustomBuyModal(0)">🛒 购买</button>
+                    <button class="btn btn-outline btn-sm" onclick="openShareModal(0)">📸 分享</button>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <h3>档案 2</h3><p><strong>武夷岩茶·大红袍</strong></p>
+                    <button class="btn btn-sm" onclick="viewProfileDetail(1)">详情</button>
+                    <button class="btn btn-outline btn-sm" onclick="deleteProfile(1)">删除</button>
+                    <button class="btn btn-gold btn-sm" onclick="openCustomBuyModal(1)">🛒 购买</button>
+                    <button class="btn btn-outline btn-sm" onclick="openShareModal(1)">📸 分享</button>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <h3>档案 3</h3><p><strong>茉莉银毫</strong></p>
+                    <button class="btn btn-sm" onclick="viewProfileDetail(2)">详情</button>
+                    <button class="btn btn-outline btn-sm" onclick="deleteProfile(2)">删除</button>
+                    <button class="btn btn-gold btn-sm" onclick="openCustomBuyModal(2)">🛒 购买</button>
+                    <button class="btn btn-outline btn-sm" onclick="openShareModal(2)">📸 分享</button>
+                </div></div>
+        <div style="text-align:center; margin-top:30px;"><button class="btn btn-outline" onclick="startNewProfile()">➕ 创建新口味档案</button></div>
+    </section>
+
+    <footer class="footer">
+        <p>Chaonomics · 青年茶饮探索计划</p>
+        <p>基于区块链技术，每一片茶叶都可追溯。</p>
+        <p>小红书：<span class="xhs-link" onclick="copyXHS()">@Sweety_Jan0108</span></p>
+        <p style="font-size:0.8rem;margin-top:10px;">© 2025 Chaonomics</p>
+    </footer>
+
+    <!-- 弹窗部分 -->
+    <div class="modal" id="traceModal"><div class="modal-content"><span class="close-btn" onclick="closeTrace()">✕</span><h2>🔗 数字足迹 · 完整溯源报告</h2><p><strong>武夷岩茶·正岩大红袍</strong></p><p>📍 产地：福建武夷山正岩核心区</p><p>📅 采摘：2025.5.3</p><p>👨‍🏭 制茶师：陈国栋（34代非遗传承人）</p><p>📖 故事：家族守护茶山三百余年</p><p>⛰️ 风土：丹霞地貌，岩骨花香</p><p>🧪 检测：SGS零检出</p><p style="color:#888;">区块哈希：0x7a3f... (模拟)</p></div></div>
+    <div class="modal" id="preorderModal"><div class="modal-content"><span class="close-btn" onclick="closePreorderModal()">✕</span><h2>📝 意向登记</h2><form onsubmit="submitPreorder(event)"><input type="text" id="preName" placeholder="姓名" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><input type="tel" id="prePhone" placeholder="手机号" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><button type="submit" class="btn" style="width:100%;">提交</button></form><p class="privacy-note">🔒 仅用于通知</p></div></div>
+    <div class="modal" id="profileEditorModal"><div class="modal-content"><span class="close-btn" onclick="closeProfileEditor()">✕</span><h2>编辑个人信息</h2><form onsubmit="saveProfile(event)"><input type="text" id="editNickname" placeholder="昵称" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><input type="tel" id="editPhone" placeholder="手机号" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><select id="editGender" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><option value="">性别</option><option value="男">男</option><option value="女">女</option><option value="其他">其他</option></select><button type="submit" class="btn" style="width:100%;">保存</button></form></div></div>
+    <div class="modal" id="customBuyModal"><div class="modal-content"><span class="close-btn" onclick="closeCustomBuyModal()">✕</span><h2>🛒 定制购买</h2><p id="customBuyProfileName"></p><form onsubmit="submitCustomBuy(event)"><input type="text" id="buyName" placeholder="收货人" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><input type="tel" id="buyPhone" placeholder="电话" required="" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><select id="buySpec" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"><option value="50g">50g 体验装</option><option value="100g">100g 标准装</option><option value="250g">250g 分享装</option></select><textarea id="buyNote" placeholder="备注" style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd;"></textarea><button type="submit" class="btn" style="width:100%;">提交意向</button></form><p class="privacy-note">非真实交易</p></div></div>
+    <div class="modal" id="shareModal"><div class="modal-content"><span class="close-btn" onclick="closeShareModal()">✕</span><h2>📸 我的茶卡</h2><div class="share-poster" id="sharePoster"></div><button class="btn" onclick="downloadPoster()" style="margin-top:15px;">📥 保存图片</button></div></div>
+    <div class="toast" id="toast"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
